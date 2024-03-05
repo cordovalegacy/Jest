@@ -13,22 +13,32 @@ describe("utils test suite", () => {
     expect(actual).toBe(expected);
   });
 
-  it("should return info for a valid string", () => {
+  describe("getStringInfo for arg Example-Test should", () => {
     const actual = getStringInfo("Example-Test");
 
-    expect(actual.lowerCase).toBe("example-test");
-    expect(actual.extraInfo).toEqual({});
+    test("return correct length", () => {
+      expect(actual.characters).toHaveLength(12);
+    });
 
-    //two below are the same
-    expect(actual.characters.length).toBe(12);
-    expect(actual.characters).toHaveLength(12);
+    test("return correct lower case string", () => {
+      expect(actual.lowerCase).toBe("example-test");
+    });
 
-    expect(actual.characters).toContain<string>("E");
-    expect(actual.extraInfo).toEqual(
-      expect.arrayContaining(["E", "x", "a", "m", "p", "l", "e"])
-    );
-
-    expect(actual.extraInfo).not.toBeUndefined();
-    expect(actual.extraInfo).toBeTruthy();
+    test("return correct characters from original string", () => {
+      expect(actual.characters).toEqual([
+        "E",
+        "x",
+        "a",
+        "m",
+        "p",
+        "l",
+        "e",
+        "-",
+        "T",
+        "e",
+        "s",
+        "t",
+      ]);
+    });
   });
 });
