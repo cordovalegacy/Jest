@@ -1,7 +1,7 @@
-import { getStringInfo, toUpperCase } from "../app/utils";
+import { StringUtils, getStringInfo, toUpperCase } from "../app/utils";
 
-describe("utils test suite", () => {
-  it("should return uppercase string", () => {
+describe("Utils test suite", () => {
+  it("should return correct uppercase string", () => {
     //arrange:
     const sut = toUpperCase; //system under test
     const expected = "ABC";
@@ -13,10 +13,22 @@ describe("utils test suite", () => {
     expect(actual).toBe(expected);
   });
 
-  describe("getStringInfo for arg Example-Test should", () => {
+  describe("Parameterized Testing (Breaking up the test into pieces)", () => {
+    it.each([
+      { input: "abc", expected: "ABC" },
+      { input: "def", expected: "DEF" },
+      { input: "ghi", expected: "GHI" },
+    ])("$input ToUpperCase should be expected", ({ input, expected }) => {
+      const actual = toUpperCase(input);
+      expect(actual).toBe(expected);
+    });
+  });
+
+  //describe will spit out a message in our terminal
+  describe("Assertions and Matchers", () => {
     const actual = getStringInfo("Example-Test");
 
-    test("return correct length", () => {
+    test("return correct string length", () => {
       expect(actual.characters).toHaveLength(12);
     });
 
@@ -39,6 +51,31 @@ describe("utils test suite", () => {
         "s",
         "t",
       ]);
+    });
+  });
+
+  describe("StringUtils Class Test", () => {
+    //arrange
+    let sut: StringUtils;
+
+    //this is called set up
+    beforeEach(() => {
+      sut = new StringUtils();
+      console.log("SETTING UP");
+    });
+
+    //this is called tear down
+    afterEach(() => {
+      //clearing mocks (most common)
+      console.log("TEARING DOWN");
+    });
+
+    it("Should return correct uppercase string", () => {
+      //act
+      const actual = sut.toUpperCase("brendan cordova");
+
+      //assert
+      expect(actual).toBe("BRENDAN CORDOVA");
     });
   });
 });
