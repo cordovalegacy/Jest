@@ -1,0 +1,11 @@
+import { toUpperCase } from "../app/utils"
+
+
+describe('utils test suite', () => {
+    
+    test('should return uppercase', () => {
+        const result = toUpperCase('abc')
+        expect(result).toBe('ABC')
+    })
+
+})
