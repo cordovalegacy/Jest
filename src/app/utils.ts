@@ -21,7 +21,10 @@ export function getStringInfo(arg: string): stringInfo {
 }
 
 export class StringUtils {
-    public toUpperCase(arg: string) {
-        return arg.toUpperCase()
+  public toUpperCase(arg: string) {
+    if (!arg) {
+      throw new Error("Inavlid Argument");
     }
+    return arg.toUpperCase();
+  }
 }

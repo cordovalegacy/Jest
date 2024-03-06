@@ -77,5 +77,22 @@ describe("Utils test suite", () => {
       //assert
       expect(actual).toBe("BRENDAN CORDOVA");
     });
+
+    it("Should throw an error on an invalid argument", () => {
+      function expectError() {
+        sut.toUpperCase("");
+      }
+
+      expect(expectError).toThrow();
+    });
+
+    it("Should throw a fail error on an invalid argument", () => {
+      try {
+        sut.toUpperCase("");
+        fail();
+      } catch (err) {
+        expect(err).toBeInstanceOf(Error);
+      }
+    });
   });
 });
