@@ -16,3 +16,17 @@
 # After the test is finished it should either be passing or failing
 
 # Cover all the cases/paths/scenarios. Happy path, sad path, edge cases.
+
+
+##### Aliases
+
+### Properties
+## only - use this when you want to only test one thing in the test suite
+## skip - same use case as only
+## todo - you can use this to make a skeleton of your test (arrange first)
+## concurrent - runs the tests async
+
+### Tests
+## it
+## test
+## xit - same as it.skip
