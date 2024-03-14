@@ -33,6 +33,8 @@ export class PasswordChecker {
       this.hasSpecialCharacterCheck(password)
     ) {
       return true;
+    } else {
+      return false;
     }
   }
 }

@@ -30,3 +30,9 @@
 ## it
 ## test
 ## xit - same as it.skip
+
+### What are test doubles?
+## Dummy Objects - passed around but not used
+## Fakes - simplifies a working implementation by taking a testing shortcut
+## Mocks - preprogrammed with expectations
+## Spies - tracks information about how a unit is called (similar to mocks)
